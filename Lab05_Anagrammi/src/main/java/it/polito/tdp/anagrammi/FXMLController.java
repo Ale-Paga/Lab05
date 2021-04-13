@@ -14,11 +14,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.control.Button;
+
+
 
 public class FXMLController {
 
 	private Model model;
 	
+	 @FXML
+	 private Button btnCalcola;
+	 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
 
@@ -34,6 +41,15 @@ public class FXMLController {
     @FXML // fx:id="txtErrato"
     private TextArea txtErrato; // Value injected by FXMLLoader
 
+    
+   
+    @FXML
+    void enableBottone(KeyEvent event) {
+    	this.btnCalcola.setDisable(false);
+
+    }
+
+    
     @FXML
     void handleCalcola(ActionEvent event) {
 
@@ -67,6 +83,7 @@ public class FXMLController {
     
     public void setModel(Model m) {
     	this.model = m ;
+    	this.btnCalcola.setDisable(true);
         }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
