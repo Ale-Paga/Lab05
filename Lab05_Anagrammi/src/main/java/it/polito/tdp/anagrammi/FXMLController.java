@@ -5,6 +5,8 @@
 package it.polito.tdp.anagrammi;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.anagrammi.model.Model;
@@ -35,11 +37,32 @@ public class FXMLController {
     @FXML
     void handleCalcola(ActionEvent event) {
 
+    	this.txtCorretto.clear();
+    	this.txtErrato.clear();
+    	String parola=this.txtParola.getText();
+    	if(parola.equals("")) {
+    		this.txtCorretto.setText("ERRORE: devi inserire una parola \n");
+    		return;
+    	}
+    	
+    	Map<String,Boolean> parole = new HashMap<String,Boolean>();
+    	
+    	parole=model.anagrammi(parola);
+    	for(String key: parole.keySet()) {
+    		if(parole.get(key)) {
+    			this.txtCorretto.appendText(key+"\n");
+    		}else {
+    			this.txtErrato.appendText(key+"\n");
+    		}
+    	}
+    	
     }
 
     @FXML
     void handleReset(ActionEvent event) {
-
+    	this.txtCorretto.clear();
+    	this.txtErrato.clear();
+    	this.txtParola.clear();
     }
     
     public void setModel(Model m) {
