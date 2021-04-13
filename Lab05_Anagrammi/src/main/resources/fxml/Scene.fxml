@@ -22,7 +22,7 @@
          <children>
             <HBox spacing="10.0">
                <children>
-                  <TextField fx:id="txtParola" onKeyPressed="#enableBottone" promptText="Inserisci parola..." />
+                  <TextField fx:id="txtParola" onKeyReleased="#enableBottone" promptText="Inserisci parola..." />
                   <Button fx:id="btnCalcola" mnemonicParsing="false" onAction="#handleCalcola" text="Calcola Anagrammi" />
                </children>
                <VBox.margin>

@@ -45,7 +45,11 @@ public class FXMLController {
    
     @FXML
     void enableBottone(KeyEvent event) {
-    	this.btnCalcola.setDisable(false);
+    	String p=this.txtParola.getText(); 
+    	if(!p.equals("")) {
+        	this.btnCalcola.setDisable(false);
+
+    	}
 
     }
 
@@ -58,6 +62,10 @@ public class FXMLController {
     	String parola=this.txtParola.getText();
     	if(parola.equals("")) {
     		this.txtCorretto.setText("ERRORE: devi inserire una parola \n");
+    		return;
+    	}
+    	if(parola.length()>7) {
+    		this.txtCorretto.setText("ERRORE: la parola può avere al massimo 7 lettere \n");
     		return;
     	}
     	
@@ -79,6 +87,7 @@ public class FXMLController {
     	this.txtCorretto.clear();
     	this.txtErrato.clear();
     	this.txtParola.clear();
+    	this.btnCalcola.setDisable(true);
     }
     
     public void setModel(Model m) {
