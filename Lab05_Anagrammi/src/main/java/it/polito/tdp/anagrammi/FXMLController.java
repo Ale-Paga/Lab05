@@ -64,10 +64,10 @@ public class FXMLController {
     		this.txtCorretto.setText("ERRORE: devi inserire una parola \n");
     		return;
     	}
-    	if(parola.length()>7) {
-    		this.txtCorretto.setText("ERRORE: la parola può avere al massimo 7 lettere \n");
-    		return;
-    	}
+    	//if(parola.length()>7) {
+    		//this.txtCorretto.setText("ERRORE: la parola può avere al massimo 7 lettere \n");
+    		//return;
+    	//}
     	
     	Map<String,Boolean> parole = new HashMap<String,Boolean>();
     	
